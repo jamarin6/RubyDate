@@ -16,7 +16,7 @@ class Movie
 end
 
 class Cinema
-	def initialize(movies)
+	def initialize(movies = [])
 		@movies = movies
 	end
 
