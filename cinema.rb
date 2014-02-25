@@ -43,6 +43,14 @@ class Cinema
 		end
 		movies_by_time.sort.map{|movie| movie.title}
 	end
+
+	def group_by_genre
+		@movies.inject({}) do |hash, movie|
+			hash[movie.genre] ||= []
+			hash[movie.genre] << movie.title
+			hash
+		end
+	end
 =begin
 	def listing
 		@movies.sort_by{|movie| movie.title}.map{|movie| movie.title} otra manera d hacerlo
