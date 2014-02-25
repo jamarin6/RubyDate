@@ -156,6 +156,22 @@ describe Cinema do
 		end
 	end
 
+	describe 'movies_per_genre' do
+		it 'counts the number of movies in each genre' do
+			die_hard = Movie.new('Die hard', 'Action', Date.new(1988, 9, 30))
+			aladin = Movie.new('Aladin', 'Fantastic', Date.new(1992, 11, 18))
+			clerks = Movie.new('Clerks', 'Musical', Date.new(1994, 11, 30))
+			matrix = Movie.new('Matrix', 'Fantastic', Date.new(1999, 6, 23))
+			cinema = Cinema.new([die_hard, aladin, clerks, matrix])
+
+			titles = cinema.movies_per_genre
+
+			expect(titles['Action']).to eq(1)
+			expect(titles['Musical']).to eq(1)
+			expect(titles['Fantastic']).to eq(2)
+		end
+	end
+
 end
 
 

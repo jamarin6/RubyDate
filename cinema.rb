@@ -46,12 +46,41 @@ class Cinema
 
 	def group_by_genre
 		@movies.inject({}) do |hash, movie|
-			hash[movie.genre] ||= []
-			hash[movie.genre] << movie.title
+			hash[movie.genre] ||= [] #necesita inicializarse a array xq sino es nill, y nill.push (q es = q <<) no existe
+			hash[movie.genre] << movie.title  #pero array.push (osea <<) si existe y lo reconoce
 			hash
 		end
 	end
+
+	def movies_per_genre
+		@movies.inject({}) do |my_hash, movie|
+			my_hash[movie.genre] ||= 0
+			my_hash[movie.genre] += 1
+			my_hash
+		end
+	end
 =begin
+
+	def group_by_genre     #otra manera del metodo group_by_genre
+		if movies_by_genre[movie.genre] = nill
+			movies_by_genre[movie.genre] = []
+			movies_by_genre[movie.genre].push(movie.title)
+		else
+			movies_by_genre[movie.genre].push(movie.title)
+		end
+		movies_by_genre
+	end
+
+	def group_by_genre      #otra forma para ver mejor el group_by_genre
+		@movies.inject({}) do |movies_by_genre, movie|
+			movies_by_genre[movie.genre] ||= [] #necesita inicializarse a array xq sino es nill, y nill.push (q es = q <<) no existe
+			movies_by_genre[movie.genre] << movie.title  #pero array.push (osea <<) si existe y lo reconoce
+			movies_by_genre
+		end
+	end
+
+
+
 	def listing
 		@movies.sort_by{|movie| movie.title}.map{|movie| movie.title} otra manera d hacerlo
 	o tambien... @movies.sort_by{&:title}.map{|movie| movie.title}
