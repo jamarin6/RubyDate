@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'Review'
+require 'movie'
 
 
 describe Review do
@@ -26,19 +28,16 @@ describe Review do
 			#expect(titles[1][1]).to eq(1)
 		end
 
-=begin
 		it 'avg_value' do
 			aladin = Movie.new('Aladin', 'Fantastic',
 			 Date.new(1992, 11, 18))
 
-			aladin.add_review('Pelicula del mago aladin', 4)
-			aladin.add_review('La peor pelicula del mundo', 2)
+			aladin.add_review(Review.new('Pelicula del mago aladin', 'Blabla', 11))
+			aladin.add_review(Review.new('La peor pelicula del mundo', 'Blabla', 2))
 
 			titles = aladin.avg_value
 
-			expect(titles).to eq(3)
-		end		
-	end
-=end
+			expect(titles).to eq(6.5)
+		end
 	end
 end

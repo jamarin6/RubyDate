@@ -3,6 +3,7 @@
 class Cinema
 	def initialize(movies = [])
 		@movies = movies
+		@calendar = calendar
 	end
 
 	def listing
@@ -45,6 +46,16 @@ class Cinema
 		end
 	end
 
+	def add(movie)
+			@movies << movie
+		#@movies.push(movie)  es otra forma de hacerlo
+	end
+
+	def remove(movie)
+		@movies.delete(movie)	
+	end
+end
+
 =begin
 
 	def group_by_genre     #otra manera del metodo group_by_genre
@@ -81,14 +92,7 @@ class Cinema
 	end
 =end
 
-	def add(movie)
-		@movies << movie
-	#@movies.push(movie)  es otra forma de hacerlo
-	end
-
-	def remove(movie)
-		@movies.delete(movie)	
-	end
+	
 
 
 
@@ -103,7 +107,6 @@ class Cinema
 	  	title <=>  other_movie.title
 	  end
 =end
-end
 =begin
 die_hard = Movie.new('Die hard', 'Action', Date.new(1988, 9, 30))
 aladin = Movie.new('Aladin', 'Fantastic', Date.new(1992, 11, 18))

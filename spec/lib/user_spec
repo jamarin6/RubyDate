@@ -1,0 +1,5 @@
+	describe 'movies_per_genre' do
+		it 'counts the number of movies in each genre' do
+			expect(titles['Fantastic']).to eq(2)
+		end
+	end

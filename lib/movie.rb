@@ -1,4 +1,4 @@
-require "date"
+ require "date"
 require 'review'
 
 
@@ -11,8 +11,6 @@ class Movie
 	  @title = title
 	  @genre = genre
 	  @date = date
-	  #@comment = comment
-	  #@note = note
 	  @reviews = []
 
 	end
@@ -27,11 +25,21 @@ class Movie
 		
 	end
 
-
 	def add_review(review)
 		 
 		 reviews << review
 	end
+
+	def avg_value
+		notas = reviews.map{|review| review.note}
+		suma = notas.inject(0) {|total, number| total += number}
+		suma.to_f / notas.length
+
+			#suma = @note.inject() {  otal, number| total += number}
+			#suma.to_f / @note.length
+	end
+end
+
 
 =begin
 	def review
@@ -46,9 +54,5 @@ class Movie
 		 @note.push(note)
 	end
 
-	def avg_value
-		suma = @note.inject() {|total, number| total += number}
-		suma / @note.length
-	end
+	
 =end
-end

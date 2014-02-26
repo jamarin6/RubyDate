@@ -133,6 +133,8 @@ describe Cinema do
 		end
 	end
 
+	describe 'calendar' do
+		it 'returns an array of movies within selected dates'
 	
 end
 
